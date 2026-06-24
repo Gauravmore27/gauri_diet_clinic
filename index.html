@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gauri's Diet Clinic | Personalized Nutrition & Wellness</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+--primary:#0F6CBD;
+--secondary:#14B8A6;
+--green:#7AC943;
+--dark:#1e293b;
+--light:#f8fcfd;
+--white:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+color:var(--dark);
+line-height:1.6;
+background:#fff;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+h1,h2,h3,h4{
+font-family:'Poppins',sans-serif;
+}
+
+section{
+padding:80px 0;
+}
+
+.btn{
+display:inline-block;
+padding:14px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-primary{
+background:var(--primary);
+color:#fff;
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+background:#0b5ea8;
+}
+
+.btn-secondary{
+background:var(--secondary);
+color:#fff;
+margin-left:10px;
+}
+
+.btn-secondary:hover{
+transform:translateY(-3px);
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:#64748b;
+}
+
+/* Header */
+
+header{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+background:#fff;
+box-shadow:0 2px 20px rgba(0,0,0,.08);
+z-index:1000;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0px 0;
+}
+
+.logo img{
+width :130px;
+height:auto;
+
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    position:relative;
+    display:inline-block;
+    text-decoration:none;
+    color:#334155;
+    font-weight:600;
+    font-size:16px;
+    padding:8px 0;
+    transition:all .35s ease;
+}
+
+/* Hover Text Color */
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* Animated Underline */
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:100%;
+    height:3px;
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+    border-radius:10px;
+
+    transform:scaleX(0);
+    transform-origin:left;
+    opacity:0;
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+}
+
+/* Hover Effect */
+nav ul li a:hover::after{
+    transform:scaleX(1);
+    opacity:1;
+}
+
+/* Active Menu */
+nav ul li a.active{
+    color:var(--primary);
+}
+
+nav ul li a.active::after{
+    transform:scaleX(1);
+    opacity:1;
+}
+
+/* Hamburger */
+
+.menu-toggle{
+    width:48px;
+    height:48px;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.menu-toggle span{
+    width:24px;
+    height:3px;
+    background:var(--primary);
+    margin:3px 0;
+    border-radius:10px;
+    transition:.4s;
+}
+
+/* Animation */
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-9px) rotate(-45deg);
+}
+
+/* Hero */
+
+.hero{
+padding-top:150px;
+background:linear-gradient(135deg,#f4fbff,#eefcf9);
+}
+
+.hero-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:50px;
+}
+
+.hero-text h1{
+font-size:55px;
+margin-bottom:20px;
+color:var(--dark);
+}
+
+.hero-text p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.hero-list{
+margin-bottom:25px;
+}
+
+.hero-list li{
+list-style:none;
+margin-bottom:10px;
+}
+
+.hero-list i{
+color:var(--green);
+margin-right:10px;
+}
+
+.hero-image img{
+width:100%;
+border-radius:25px;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+/* Stats */
+
+.stats{
+background:var(--primary);
+color:#fff;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+text-align:center;
+}
+
+.stat h3{
+font-size:40px;
+}
+
+/* About */
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about-img img{
+width:100%;
+border-radius:20px;
+}
+
+/* Doctor */
+
+.doctor-card{
+display:grid;
+grid-template-columns:350px 1fr;
+gap:40px;
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.doctor-card img{
+width:100%;
+border-radius:20px;
+}
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 18px;
+    margin-top:20px;
+}
+
+.badges span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 24px;
+
+    background:#edf2f7;
+    color:#1e3a5f;
+
+    border-radius:999px;
+
+    font-size:18px;
+    font-weight:500;
+
+    transition:all .3s ease;
+
+    cursor:pointer;
+}
+
+.badges span:hover{
+    background:#0F6CBD;
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(15,108,189,.25);
+}
+.specialization-badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:25px;
+}
+
+.badge-card{
+    width:220px;
+    transition:all .35s ease;
+    cursor:pointer;
+}
+
+.badge-card img{
+    width:100%;
+    display:block;
+}
+
+.badge-card:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+/* Services */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.service-card{
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.4s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+.service-card i{
+font-size:40px;
+color:var(--primary);
+margin-bottom:15px;
+}
+
+/* Process */
+
+.process{
+background:#f7fbfd;
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.step{
+background:#fff;
+padding:25px;
+border-radius:20px;
+text-align:center;
+}
+
+.step-number{
+width:60px;
+height:60px;
+line-height:60px;
+border-radius:50%;
+background:var(--primary);
+color:#fff;
+margin:auto;
+margin-bottom:15px;
+font-size:24px;
+font-weight:700;
+}
+
+/* Testimonials */
+
+.testimonials{
+background:#eefaf8;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.testimonial{
+background:#fff;
+padding:25px;
+border-radius:20px;
+}
+
+/* CTA */
+
+.cta{
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+color:#fff;
+text-align:center;
+}
+
+.cta h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+/* Contact */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.contact-box{
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.contact-box p{
+margin-bottom:15px;
+}
+
+.contact-box i{
+color:var(--primary);
+margin-right:10px;
+}
+
+form input,
+form textarea{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+iframe{
+width:100%;
+height:300px;
+border:none;
+border-radius:20px;
+}
+
+/* Footer */
+
+footer{
+background:#0f172a;
+color:#fff;
+text-align:center;
+padding:30px 0;
+}
+
+/* WhatsApp */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+background:#25D366;
+color:#fff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+z-index:999;
+}
+
+@media(max-width:991px){
+
+.hero-content,
+.about-grid,
+.doctor-card,
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+ 
+@media(max-width:991px){
+
+.menu-toggle{
+    display:flex;
+}
+
+.nav-menu{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#fff;
+
+    max-height:0;
+    overflow:hidden;
+
+    transition:.5s ease;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+.nav-menu.active{
+    max-height:500px;
+}
+
+.nav-menu ul{
+    flex-direction:column;
+    gap:0;
+}
+
+.nav-menu ul li{
+    border-bottom:1px solid #edf2f7;
+}
+
+.nav-menu ul li a{
+    display:block;
+    padding:18px 25px;
+}
+
+}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="container navbar">
+<div class="logo"><img src="logo.jpeg" alt="Gauri's Diet Clinic"></div>
+<div class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<nav class="nav-menu">
+<ul>
+<li><a href="#home" class="nav-link">Home</a></li>
+<li><a href="#about" class="nav-link">About</a></li>
+<li><a href="#doctor" class="nav-link">Doctor</a></li>
+<li><a href="#services" class="nav-link">Services</a></li>
+<li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+<li><a href="#contact" class="nav-link">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<section class="hero" id ="home">
+<div class="container hero-content">
+
+<div class="hero-text">
+<h1>Your Trusted Partner In Personalized Nutrition & Wellness</h1>
+
+<p>
+At Gauri's Diet Clinic, we believe every individual deserves a tailor-made approach to diet and health.
+</p>
+
+<ul class="hero-list">
+<li><i class="fa fa-check"></i> Weight Management</li>
+<li><i class="fa fa-check"></i> Diabetes Management</li>
+<li><i class="fa fa-check"></i> PCOD / PCOS Support</li>
+<li><i class="fa fa-check"></i> Thyroid Care</li>
+<li><i class="fa fa-check"></i> Pregnancy Nutrition</li>
+</ul>
+
+<a href="#contact" class="btn btn-primary">Book Consultation</a>
+<a href="tel:+919967217045" class="btn btn-secondary">Call Now</a>
+
+</div>
+
+<div class="hero-image">
+<img src="doctor1.jpg" alt="Dietitian">
+</div>
+
+</div>
+</section>
+
+<section class="stats">
+<div class="container stats-grid">
+<div class="stat">
+<h3>500+</h3>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat">
+<h3>8+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h3>95%</h3>
+<p>Success Rate</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Personalized Plans</p>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+
+<div class="section-title">
+<h2>About Clinic</h2>
+<p>Personalized nutrition backed by science.</p>
+</div>
+
+<div class="about-grid">
+
+<div class="about-img">
+<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200" alt="">
+</div>
+
+<div>
+<p>
+At Gauri's Diet Clinic, every client receives a customized nutrition strategy designed around their lifestyle, health goals and medical conditions.
+</p>
+
+<br>
+
+<p>
+We combine diet planning, habit building, lifestyle coaching and continuous support to deliver sustainable results.
+</p>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="doctor">
+<div class="container">
+
+<div class="section-title">
+<h2>Meet Gauri</h2>
+<p>Your Personal Nutrition Expert</p>
+</div>
+
+<div class="doctor-card">
+
+<img src="doctor2.jpg" alt="Doctor">
+
+<div>
+
+<h3>Gauri</h3>
+
+<p>
+With years of experience in dietetics and a passion for transforming lives through nutrition, Gauri brings a
+compassionate and science-backed approach to every client. Understanding that no two bodies or lifestyles
+are the same, she designs personalized plans that are practical, effective, and enjoyable.
+</p>
+<p>At Gauri's Diet Clinic, we focus on educating, motivating, and empowering you to make the best choices for
+your health. Our mission is to make professional diet counseling accessible and easy to follow for everyone.</p>
+
+<div class="specialization-badges">
+
+    <div class="badge-card">
+        <img src="images/weight-management.png" alt="Weight Management">
+    </div>
+
+    <div class="badge-card">
+        <img src="images/diabetes-care.png" alt="Diabetes Care">
+    </div>
+
+    <div class="badge-card">
+        <img src="images/pcod-pcos.png" alt="PCOD / PCOS">
+    </div>
+
+    <div class="badge-card">
+        <img src="images/thyroid-care.png" alt="Thyroid Care">
+    </div>
+
+    <div class="badge-card">
+        <img src="images/pregnancy-nutrition.png" alt="Pregnancy Nutrition">
+    </div>
+
+    <div class="badge-card">
+        <img src="images/sports-nutrition.png" alt="Sports Nutrition">
+    </div>
+
+    <div class="badge-card">
+        <img src="images\follow-support.png" alt="Follow-Up Support">
+    </div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+
+<div class="section-title">
+<h2>Our Services</h2>
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+<i class="fa-solid fa-utensils"></i>
+<h3>Personalized Diet Plans</h3>
+<p>Customized meal plans designed specifically for you.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-weight-scale"></i>
+<h3>Weight Management</h3>
+<p>Safe weight loss and weight gain strategies.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-heart-pulse"></i>
+<h3>Diabetes Management</h3>
+<p>Nutrition guidance for healthy blood sugar levels.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-female"></i>
+<h3>PCOD / PCOS Support</h3>
+<p>Balanced nutrition for hormonal health.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-stethoscope"></i>
+<h3>Thyroid Care</h3>
+<p>Improve metabolism through proper nutrition.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-person-pregnant"></i>
+<h3>Pregnancy Nutrition</h3>
+<p>Healthy nutrition for mother and baby.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-dumbbell"></i>
+<h3>Sports Nutrition</h3>
+<p>Performance-focused diet planning.</p>
+</div>
+
+<div class="service-card">
+<i class="fa-solid fa-headset"></i>
+<h3>Follow-Up Support</h3>
+<p>Continuous monitoring and motivation.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="process">
+
+<div class="container">
+
+<div class="section-title">
+<h2>How It Works</h2>
+</div>
+
+<div class="process-grid">
+
+<div class="step">
+<div class="step-number">1</div>
+<h3>Consultation</h3>
+<p>Book your consultation.</p>
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+<h3>Assessment</h3>
+<p>Review lifestyle and medical history.</p>
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+<h3>Plan</h3>
+<p>Receive your personalized diet plan.</p>
+</div>
+
+<div class="step">
+<div class="step-number">4</div>
+<h3>Support</h3>
+<p>Continuous follow-ups and guidance.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="testimonials" class="testimonials">
+<div class="container">
+
+<div class="section-title">
+<h2>Success Stories</h2>
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>"Thanks to Gauri's guidance, I lost 8 kg in 3 months."</p>
+<strong>– Sneha M.</strong>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>"Managing my diabetes has become much easier."</p>
+<strong>– Pradnya S.</strong>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>"I finally control my PCOD symptoms."</p>
+<strong>– Neha K.</strong>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="cta">
+
+<div class="container">
+<h2>Ready To Start Your Health Journey?</h2>
+<p>Book your consultation today.</p>
+<br>
+<a href="#contact" class="btn btn-primary">Book Appointment</a>
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Contact Us</h2>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-box">
+
+<p><i class="fa-solid fa-phone"></i> +91 99672 17045</p>
+
+<p><i class="fa-solid fa-phone"></i> +91 79725 21538</p>
+
+<p><i class="fa-solid fa-envelope"></i> info@gaurisdietclinic.com</p>
+
+<p><i class="fa-solid fa-location-dot"></i> Your Clinic Address Here</p>
+
+</div>
+
+<div class="contact-box">
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="tel" placeholder="Phone Number">
+
+<input type="email" placeholder="Email Address">
+
+<textarea rows="5" placeholder="Message"></textarea>
+
+<button class="btn btn-primary">Book Consultation</button>
+
+</form>
+
+</div>
+
+</div>
+
+<br><br>
+
+<iframe
+src="https://maps.google.com/maps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+</section>
+
+<footer>
+<div class="container">
+<p>© 2026 Gauri's Diet Clinic. All Rights Reserved.</p>
+</div>
+</footer>
+
+<a href="https://wa.me/919967217045" class="whatsapp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+ 
+<script>
+
+    const menuToggle=document.querySelector(".menu-toggle");
+    const navMenu=document.querySelector(".nav-menu");
+
+    menuToggle.addEventListener("click",()=>{
+
+        menuToggle.classList.toggle("active");
+        navMenu.classList.toggle("active");
+
+    });
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+
+        if (
+            pageYOffset >= sectionTop &&
+            pageYOffset < sectionTop + sectionHeight
+        ) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") === "#" + current
+        ) {
+            link.classList.add("active");
+        }
+    });
+});
+
+
+
+const canvas = document.getElementById("badgeCanvas");
+const ctx = canvas.getContext("2d");
+
+const badges = [
+    "Weight Management",
+    "Diabetes Care",
+    "PCOD / PCOS",
+    "Thyroid Care",
+    "Pregnancy Nutrition",
+    "Sports Nutrition"
+];
+
+ctx.font = "20px Arial";
+
+let x = 10;
+let y = 20;
+
+badges.forEach((text,index)=>{
+
+    const textWidth = ctx.measureText(text).width;
+    const badgeWidth = textWidth + 40;
+
+    if(x + badgeWidth > 780){
+        x = 10;
+        y += 55;
+    }
+
+    ctx.fillStyle = "#edf2f7";
+
+    roundRect(
+        ctx,
+        x,
+        y,
+        badgeWidth,
+        38,
+        19
+    );
+
+    ctx.fill();
+
+    ctx.fillStyle = "#1e3a5f";
+    ctx.fillText(text,x+20,y+25);
+
+    x += badgeWidth + 15;
+});
+
+function roundRect(ctx,x,y,w,h,r){
+    ctx.beginPath();
+    ctx.moveTo(x+r,y);
+    ctx.arcTo(x+w,y,x+w,y+h,r);
+    ctx.arcTo(x+w,y+h,x,y+h,r);
+    ctx.arcTo(x,y+h,x,y,r);
+    ctx.arcTo(x,y,x+w,y,r);
+    ctx.closePath();
+}
+
+</script>
+</body>
+</html>
