@@ -11,12 +11,23 @@
 <style>
 
 :root{
---primary:#0F6CBD;
---secondary:#14B8A6;
---green:#7AC943;
---dark:#1e293b;
---light:#f8fcfd;
---white:#ffffff;
+/* Palette extracted from provided logo */
+--logo-blue:#1E6F8F; /* deep teal-blue */
+--logo-blue-rgb:30,111,143;
+--logo-yellow:#F5B322; /* warm gold */
+--logo-yellow-rgb:245,179,34;
+--logo-dark:#4A4A4A; /* charcoal for text */
+--logo-dark-rgb:74,74,74;
+--logo-light:#F5F6F6; /* very light gray background */
+--logo-white:#FFFFFF;
+
+/* map semantic variables to logo palette */
+--primary:var(--logo-blue);
+--secondary:var(--logo-yellow);
+--green:var(--secondary); /* replace green accents with logo yellow */
+--dark:var(--logo-dark);
+--light:var(--logo-light);
+--white:var(--logo-white);
 }
 
 *{
@@ -33,7 +44,7 @@ body{
 font-family:'Inter',sans-serif;
 color:var(--dark);
 line-height:1.6;
-background:#fff;
+background:var(--white);
 }
 
 .container{
@@ -90,7 +101,7 @@ margin-bottom:10px;
 }
 
 .section-title p{
-color:#64748b;
+color:rgba(var(--logo-dark-rgb),0.65);
 }
 
 /* Header */
@@ -132,7 +143,7 @@ nav ul li a{
     position:relative;
     display:inline-block;
     text-decoration:none;
-    color:#334155;
+    color:var(--dark);
     font-weight:600;
     font-size:16px;
     padding:8px 0;
@@ -227,7 +238,7 @@ nav ul li a.active::after{
 
 .hero{
 padding-top:150px;
-background:linear-gradient(135deg,#f4fbff,#eefcf9);
+background:linear-gradient(135deg,var(--light),var(--white));
 }
 
 .hero-content{
@@ -258,7 +269,7 @@ margin-bottom:10px;
 }
 
 .hero-list i{
-color:var(--green);
+color:var(--secondary);
 margin-right:10px;
 }
 
@@ -296,7 +307,7 @@ align-items:center;
 }
 
 .about-img img{
-width:100%;
+width:90%;
 border-radius:20px;
 }
 
@@ -331,8 +342,8 @@ border-radius:20px;
 
     padding:12px 24px;
 
-    background:#edf2f7;
-    color:#1e3a5f;
+    background:var(--light);
+    color:var(--dark);
 
     border-radius:999px;
 
@@ -345,10 +356,10 @@ border-radius:20px;
 }
 
 .badges span:hover{
-    background:#0F6CBD;
-    color:#fff;
+    background:var(--primary);
+    color:var(--white);
     transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(15,108,189,.25);
+    box-shadow:0 8px 20px rgba(var(--logo-blue-rgb),.25);
 }
 .specialization-badges{
     display:flex;
@@ -401,7 +412,7 @@ margin-bottom:15px;
 /* Process */
 
 .process{
-background:#f7fbfd;
+background:var(--light);
 }
 
 .process-grid{
@@ -433,7 +444,7 @@ font-weight:700;
 /* Testimonials */
 
 .testimonials{
-background:#eefaf8;
+background:var(--light);
 }
 
 .testimonial-grid{
@@ -490,7 +501,7 @@ form textarea{
 width:100%;
 padding:14px;
 margin-bottom:15px;
-border:1px solid #ddd;
+border:1px solid rgba(var(--logo-dark-rgb),0.12);
 border-radius:10px;
 }
 
@@ -504,8 +515,8 @@ border-radius:20px;
 /* Footer */
 
 footer{
-background:#0f172a;
-color:#fff;
+background:var(--logo-dark);
+color:var(--white);
 text-align:center;
 padding:30px 0;
 }
@@ -518,8 +529,8 @@ bottom:25px;
 right:25px;
 width:60px;
 height:60px;
-background:#25D366;
-color:#fff;
+background:var(--secondary);
+color:var(--dark);
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -607,7 +618,6 @@ grid-template-columns:repeat(2,1fr);
 <li><a href="#home" class="nav-link">Home</a></li>
 <li><a href="#about" class="nav-link">About</a></li>
 <li><a href="#doctor" class="nav-link">Doctor</a></li>
-<li><a href="#services" class="nav-link">Services</a></li>
 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
 <li><a href="#contact" class="nav-link">Contact</a></li>
 </ul>
@@ -639,7 +649,7 @@ At Gauri's Diet Clinic, we believe every individual deserves a tailor-made appro
 </div>
 
 <div class="hero-image">
-<img src="doctor1.jpg" alt="Dietitian">
+<img src="doctor1.jpeg" alt="Dietitian">
 </div>
 
 </div>
@@ -680,7 +690,7 @@ At Gauri's Diet Clinic, we believe every individual deserves a tailor-made appro
 <div class="about-grid">
 
 <div class="about-img">
-<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200" alt="">
+<img src="doctor3.jpeg" alt="">
 </div>
 
 <div>
@@ -710,7 +720,7 @@ We combine diet planning, habit building, lifestyle coaching and continuous supp
 
 <div class="doctor-card">
 
-<img src="doctor2.jpg" alt="Doctor">
+<img src="doctor2.jpeg" alt="Doctor">
 
 <div>
 
@@ -762,66 +772,6 @@ your health. Our mission is to make professional diet counseling accessible and 
 </div>
 </section>
 
-<section id="services">
-<div class="container">
-
-<div class="section-title">
-<h2>Our Services</h2>
-</div>
-
-<div class="services-grid">
-
-<div class="service-card">
-<i class="fa-solid fa-utensils"></i>
-<h3>Personalized Diet Plans</h3>
-<p>Customized meal plans designed specifically for you.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-weight-scale"></i>
-<h3>Weight Management</h3>
-<p>Safe weight loss and weight gain strategies.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-heart-pulse"></i>
-<h3>Diabetes Management</h3>
-<p>Nutrition guidance for healthy blood sugar levels.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-female"></i>
-<h3>PCOD / PCOS Support</h3>
-<p>Balanced nutrition for hormonal health.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-stethoscope"></i>
-<h3>Thyroid Care</h3>
-<p>Improve metabolism through proper nutrition.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-person-pregnant"></i>
-<h3>Pregnancy Nutrition</h3>
-<p>Healthy nutrition for mother and baby.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-dumbbell"></i>
-<h3>Sports Nutrition</h3>
-<p>Performance-focused diet planning.</p>
-</div>
-
-<div class="service-card">
-<i class="fa-solid fa-headset"></i>
-<h3>Follow-Up Support</h3>
-<p>Continuous monitoring and motivation.</p>
-</div>
-
-</div>
-</div>
-</section>
 
 <section class="process">
 
